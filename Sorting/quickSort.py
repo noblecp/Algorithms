@@ -25,8 +25,9 @@ def partition(nums, start, end):
         if nums[j] < pivot:                         # if pivot is greater than current element
             i += 1                                  # increment left bounds
             nums[i], nums[j] = nums[j], nums[i]     # swap elements in left and right fringe
-    nums[i+1], nums[end] = nums[end], nums[i+1]     # after loop ends, swap last element (chosen as pivot) with 1 after left bounds (i.e. i+1)
-    return i + 1                                    # return pivot in correct position
+    i += 1
+    nums[i], nums[end] = nums[end], nums[i]         # after loop ends, swap last element (chosen as pivot) with left bounds (i.e. i)
+    return i                                        # return pivot in correct position
 
 
 def quickSort(nums, start, end):
